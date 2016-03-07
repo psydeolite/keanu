@@ -23,11 +23,34 @@ def add_point( matrix, x, y, z=0 ):
     onex=[x]
     oney=[y]
     onez=[z]
-    two=[onex,oney,onez]
+    onei=[1]
+    two=[onex,oney,onez,onei]
     matrix.append(two)
     #pass
 
+def translate(matrix,x,y,z):
+    t=make_translate(x,y,z)
+    return matrix_mult(t,matrix)
 
+def rotx(matrix, theta):
+    t=make_rotX(theta)
+    return matrix_mult(t,matrix)
+
+def roty(matrix, theta):
+    t=make_rotY(theta)
+    return matrix_mult(t,matrix)
+
+def rotz(matrix, theta):
+    t=make_rotZ(theta)
+    return matrix_mult(t,matrix)
+
+def scale1(matrix, factor):
+    t=make_scale(factor,factor,factor)
+    return matrix_mult(t,matrix)
+
+def scale2(matrix, factor):
+    return scalar_mult(matrix,factor)
+    
 def draw_line( screen, x0, y0, x1, y1, color ):
     dx = x1 - x0
     dy = y1 - y0
