@@ -7,7 +7,7 @@ color = [ 255, 0, 0 ]
 
 squares=[]
 for r in range(20):
-    i=r*10
+    i=r
     m=[]
     add_edge(m,20+i,20+i,0,21+i,20+i,0)
     add_edge(m,21+i,20+i,0,21+i,21+i,0)
