@@ -3,31 +3,39 @@ from draw import *
 from matrix import *
 
 screen = new_screen()
-color = [ 0, 255, 0 ]
+color = [ 255, 0, 0 ]
 
 
 display(screen)
 
 squares=[]
+#c=20
+#while 
 for r in range(20):
     i=r
     m=[]
-    add_edge(m,20+i,20+i,0,21+i,20+i,0)
-    add_edge(m,21+i,20+i,0,21+i,21+i,0)
-    add_edge(m,21+i,21+i,0,20+i,21+i,0)
-    add_edge(m,20+i,21+i,0,20+i,20+i,0)
+    add_edge(m,c+i,c+i,0,c+1+i,c+i,0)
+    add_edge(m,c+1+i,c+i,0,c+1+i,c+1+i,0)
+    add_edge(m,c+1+i,c+1+i,0,c+i,c+1+i,0)
+    add_edge(m,c+i,c+1+i,0,c+i,c+i,0)
     for j in range(len(m)):
         m[j]=scale2(m[j],1.0+r)
         #m[j]=rotz(m[j],30)
     squares.append(m)
+    #c+=10
     #draw_lines(m,screen,color)
 
+#for i in range(10):
+#    color[1]+=50
+#    color[2]+=0
 for s in range(len(squares)):
+    color[1]+=50
+    color[2]+=0
     for k in range(len(squares[s])):
         squares[s][k]=rotz(squares[s][k],s*5)
         print 'hi'
+        #translate(squares[s][k], i*10,0,0)
     draw_lines(squares[s],screen,color)
-    
 display(screen)
 
 
